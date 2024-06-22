@@ -55,10 +55,11 @@
                     >
                         <div style="display: flex; flex-direction: column; height: 100%;">
                             <v-img
-                                :src="new_.picture"
-                                style="flex-grow: 1; border-radius: 4px 4px 0 0 ;"
+                                :src="`/media/${new_.picture}`"
+                                style="border-radius: 4px 4px 0 0; height: 80%"
+                                cover
                             ></v-img>
-                            <div style="display: flex; justify-content: space-between; flex-grow: 1;">
+                            <div style="display: flex; justify-content: space-between; height: 100%">
                                 <div style="display: flex; flex-direction: column; justify-content: center; margin: 0px 8px; overflow: hidden; white-space: nowrap;">
                                     <p style="font-family: 'Source Sans Pro'; font-weight: 300; font-size: 14px; margin-bottom: 0px !important; color: #7E7E7E;">{{ new_.date }}</p>
                                     <v-tooltip bottom color="#263575">
@@ -123,11 +124,11 @@
 
                 <div style="display: flex; flex-direction: column;">
                     <div v-for="(newDialogInfoBlock, index) in newDialogInfo.structure" :key="index" style="display: flex; flex-direction: column; align-items: center; width: 100%; margin: 10px 0px;">
-                        <p v-if="newDialogInfoBlock.title" style="font-size: 24px; font-family: 'Source Sans Pro'; font-weight: 400;">{{ newDialogInfoBlock.title }}</p>
+                        <p v-if="newDialogInfoBlock.title && newDialogInfoBlock.visible" style="font-size: 24px; font-family: 'Source Sans Pro'; font-weight: 400;">{{ newDialogInfoBlock.title }}</p>
                         <div v-if="newDialogInfoBlock.body" style="display: block; width: 100%;">
                             <p style="font-size: 18px; font-family: 'Source Sans Pro'; font-weight: 300; text-indent: 1.5em; text-wrap: wrap">{{ newDialogInfoBlock.body }}</p>
                         </div>
-                        <v-img v-if="newDialogInfoBlock.image" :src="newDialogInfoBlock.image" width="100%" contain></v-img>
+                        <v-img v-if="newDialogInfoBlock.image" :src="`/media/${newDialogInfoBlock.image}`" style="border-radius: 4px;" width="100%" contain></v-img>
                     </div>
                 </div>
             </v-container>
